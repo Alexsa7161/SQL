@@ -1,17 +1,17 @@
 /*
-Показать в одном отчете для каждого отдела: его
-номер, наименование, количество работающих сотрудников,
-средний оклад вместе со следующими данными по каждому
-сотруднику — фамилия, оклад и должность.
+РџРѕРєР°Р·Р°С‚СЊ РІ РѕРґРЅРѕРј РѕС‚С‡РµС‚Рµ РґР»СЏ РєР°Р¶РґРѕРіРѕ РѕС‚РґРµР»Р°: РµРіРѕ
+РЅРѕРјРµСЂ, РЅР°РёРјРµРЅРѕРІР°РЅРёРµ, РєРѕР»РёС‡РµСЃС‚РІРѕ СЂР°Р±РѕС‚Р°СЋС‰РёС… СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ,
+СЃСЂРµРґРЅРёР№ РѕРєР»Р°Рґ РІРјРµСЃС‚Рµ СЃРѕ СЃР»РµРґСѓСЋС‰РёРјРё РґР°РЅРЅС‹РјРё РїРѕ РєР°Р¶РґРѕРјСѓ
+СЃРѕС‚СЂСѓРґРЅРёРєСѓ вЂ” С„Р°РјРёР»РёСЏ, РѕРєР»Р°Рґ Рё РґРѕР»Р¶РЅРѕСЃС‚СЊ.
 */
 SELECT 
-    DECODE(GROUPING(employee_id), 1, TO_CHAR(department_id), ' ') "Номер отдела", 
-    DECODE(GROUPING(employee_id), 1, department_name, ' ') "Название отдела", 
-    DECODE(GROUPING(employee_id), 1, TO_CHAR(COUNT(employee_id)), ' ') "Кол-во сотрудников", 
-    DECODE(GROUPING(employee_id), 1, NVL(TO_CHAR(ROUND(AVG(salary), 2)), ' '), ' ') "Средний оклад",
-    NVL(last_name, ' ') "Фамилия",
-    DECODE(GROUPING(employee_id), 0, NVL(TO_CHAR(salary), '0'), ' ') "Оклад",
-    NVL(job_title, ' ') "Должность"
+    DECODE(GROUPING(employee_id), 1, TO_CHAR(department_id), ' ') "ГЌГ®Г¬ГҐГ° Г®ГІГ¤ГҐГ«Г ", 
+    DECODE(GROUPING(employee_id), 1, department_name, ' ') "ГЌГ Г§ГўГ Г­ГЁГҐ Г®ГІГ¤ГҐГ«Г ", 
+    DECODE(GROUPING(employee_id), 1, TO_CHAR(COUNT(employee_id)), ' ') "ГЉГ®Г«-ГўГ® Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў", 
+    DECODE(GROUPING(employee_id), 1, NVL(TO_CHAR(ROUND(AVG(salary), 2)), ' '), ' ') "Г‘Г°ГҐГ¤Г­ГЁГ© Г®ГЄГ«Г Г¤",
+    NVL(last_name, ' ') "Г”Г Г¬ГЁГ«ГЁГї",
+    DECODE(GROUPING(employee_id), 0, NVL(TO_CHAR(salary), '0'), ' ') "ГЋГЄГ«Г Г¤",
+    NVL(job_title, ' ') "Г„Г®Г«Г¦Г­Г®Г±ГІГј"
 FROM departments
 LEFT JOIN employees USING(department_id)
 LEFT JOIN jobs USING(job_id)
