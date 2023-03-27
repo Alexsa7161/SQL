@@ -1,6 +1,6 @@
 /*
-Для произвольной строки, состоящей из открывающих и закрывающих скобок написать запрос для вывода всех слов максимальной длины, представляющих правильные скобочные записи.
-Например, для строки  (()(() ответ должен быть:
+Р”Р»СЏ РїСЂРѕРёР·РІРѕР»СЊРЅРѕР№ СЃС‚СЂРѕРєРё, СЃРѕСЃС‚РѕСЏС‰РµР№ РёР· РѕС‚РєСЂС‹РІР°СЋС‰РёС… Рё Р·Р°РєСЂС‹РІР°СЋС‰РёС… СЃРєРѕР±РѕРє РЅР°РїРёСЃР°С‚СЊ Р·Р°РїСЂРѕСЃ РґР»СЏ РІС‹РІРѕРґР° РІСЃРµС… СЃР»РѕРІ РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ РґР»РёРЅС‹,
+РїСЂРµРґСЃС‚Р°РІР»СЏСЋС‰РёС… РїСЂР°РІРёР»СЊРЅС‹Рµ СЃРєРѕР±РѕС‡РЅС‹Рµ Р·Р°РїРёСЃРё. РќР°РїСЂРёРјРµСЂ, РґР»СЏ СЃС‚СЂРѕРєРё  (()(() РѕС‚РІРµС‚ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ:
 ()()
 (())
 */
@@ -9,7 +9,6 @@ t1 as(
 select str,level rn,substr(str,level,1) let from t
 connect by level <=length(str)
 ),
---все комбинации скобок
 t2 as(
 select rownum rn, str, nabor from(
 select distinct str, replace( Sys_Connect_By_Path(let, ' '), ' ') nabor from t1
@@ -31,14 +30,12 @@ when ')' then summa[iteration_number]-1
 else summa[iteration_number] end
 )
 order by 1,2),
---из наборов, где равное число откр и закр скоок вычитаю неправильные
 pravilnie_nabory as(
 select nabor from mod
 where num=length(nabor) and summa=0
 minus
 select distinct m.nabor from mod join mod m
 on m.rn=mod.rn and m.summa<0)
---наборы макс длины
 select nabor from pravilnie_nabory
 where length(nabor)=(select max(length(nabor)) from pravilnie_nabory)
 Order by nabor desc;
