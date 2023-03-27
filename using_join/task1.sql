@@ -1,5 +1,5 @@
 /*
-Ñîçäàéòå çàïðîñ äëÿ âûâîäà ôàìèëèé è äàò íàéìà âñåõ ñëóæàùèõ, íàíÿòûõ ïîñëå Davies.
+Ð¡Ð¾Ð·Ð´Ð°Ð¹Ñ‚Ðµ Ð·Ð°Ð¿Ñ€Ð¾Ñ Ð´Ð»Ñ Ð²Ñ‹Ð²Ð¾Ð´Ð° Ñ„Ð°Ð¼Ð¸Ð»Ð¸Ð¹ Ð¸ Ð´Ð°Ñ‚ Ð½Ð°Ð¹Ð¼Ð° Ð²ÑÐµÑ… ÑÐ»ÑƒÐ¶Ð°Ñ‰Ð¸Ñ…, Ð½Ð°Ð½ÑÑ‚Ñ‹Ñ… Ð¿Ð¾ÑÐ»Ðµ Davies.
 */
 SELECT EMP1.LAST_NAME, EMP1.HIRE_DATE
 FROM EMPLOYEES EMP1 JOIN EMPLOYEES EMP2 ON EMP1.HIRE_DATE > EMP2.HIRE_DATE
