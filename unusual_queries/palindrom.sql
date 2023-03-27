@@ -1,16 +1,17 @@
 /*
-Имеется таблица с символьным столбцом.
-Создать запрос для вывода тех значений, которые содержат в себе палиндромы, и самые длинные выражения, представляющие из себя палиндром.
+РРјРµРµС‚СЃСЏ С‚Р°Р±Р»РёС†Р° СЃ СЃРёРјРІРѕР»СЊРЅС‹Рј СЃС‚РѕР»Р±С†РѕРј
+. РЎРѕР·РґР°С‚СЊ Р·Р°РїСЂРѕСЃ РґР»СЏ РІС‹РІРѕРґР° С‚РµС… Р·РЅР°С‡РµРЅРёР№, РєРѕС‚РѕСЂС‹Рµ СЃРѕРґРµСЂР¶Р°С‚ РІ СЃРµР±Рµ РїР°Р»РёРЅРґСЂРѕРјС‹,
+Рё СЃР°РјС‹Рµ РґР»РёРЅРЅС‹Рµ РІС‹СЂР°Р¶РµРЅРёСЏ, РїСЂРµРґСЃС‚Р°РІР»СЏСЋС‰РёРµ РёР· СЃРµР±СЏ РїР°Р»РёРЅРґСЂРѕРј.
 */
 CREATE TABLE tab13(TEXT VARCHAR2(50)CONSTRAINT zad13_pk PRIMARY KEY);
 
-INSERT INTO tab13 VALUES('Крокодил');
-INSERT INTO tab13 VALUES('Колокол');
-INSERT INTO tab13 VALUES('Крокодил и колокол');
-INSERT INTO tab13 VALUES('Станок');
-INSERT INTO tab13 VALUES('        Крокодил          ');
+INSERT INTO tab13 VALUES('ГЉГ°Г®ГЄГ®Г¤ГЁГ«');
+INSERT INTO tab13 VALUES('ГЉГ®Г«Г®ГЄГ®Г«');
+INSERT INTO tab13 VALUES('ГЉГ°Г®ГЄГ®Г¤ГЁГ« ГЁ ГЄГ®Г«Г®ГЄГ®Г«');
+INSERT INTO tab13 VALUES('Г‘ГІГ Г­Г®ГЄ');
+INSERT INTO tab13 VALUES('        ГЉГ°Г®ГЄГ®Г¤ГЁГ«          ');
 INSERT INTO tab13 VALUES('                 ');
-INSERT INTO tab13 VALUES('Крокодил и                  колокол');
+INSERT INTO tab13 VALUES('ГЉГ°Г®ГЄГ®Г¤ГЁГ« ГЁ                  ГЄГ®Г«Г®ГЄГ®Г«');
 
 with doptable as (select text,length(text) L from tab13 group by text),
 splitted1 AS (select text
