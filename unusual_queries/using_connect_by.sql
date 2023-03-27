@@ -1,33 +1,34 @@
 /*
-Проверить наличие циклов в таблице подчиненностей.
-Вывести циклические зависимости в строчку в виде Номер1.Имя1->Номер2.Имя2->…Номер1.Имя1, начиная с первого по алфавиту имени.
+РџСЂРѕРІРµСЂРёС‚СЊ РЅР°Р»РёС‡РёРµ С†РёРєР»РѕРІ РІ С‚Р°Р±Р»РёС†Рµ РїРѕРґС‡РёРЅРµРЅРЅРѕСЃС‚РµР№.
+Р’С‹РІРµСЃС‚Рё С†РёРєР»РёС‡РµСЃРєРёРµ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РІ СЃС‚СЂРѕС‡РєСѓ РІ РІРёРґРµ РќРѕРјРµСЂ1.РРјСЏ1->РќРѕРјРµСЂ2.РРјСЏ2->вЂ¦РќРѕРјРµСЂ1.РРјСЏ1,
+РЅР°С‡РёРЅР°СЏ СЃ РїРµСЂРІРѕРіРѕ РїРѕ Р°Р»С„Р°РІРёС‚Сѓ РёРјРµРЅРё.
 */
 WITH TAB AS( 
-        SELECT '1' NUM, 'Алексей' NAME, '2' MNG 
+        SELECT '1' NUM, 'РђР»РµРєСЃРµР№' NAME, '2' MNG 
         FROM DUAL 
         UNION ALL 
-        SELECT '2' NUM, 'Петр' NAME, '3' MNG 
+        SELECT '2' NUM, 'РџРµС‚СЂ' NAME, '3' MNG 
         FROM DUAL 
         UNION ALL 
-        SELECT '3' NUM, 'Павел' NAME, '4' MNG 
+        SELECT '3' NUM, 'РџР°РІРµР»' NAME, '4' MNG 
         FROM DUAL 
         UNION ALL 
-        SELECT '4' NUM, 'Иван' NAME, '2' MNG 
+        SELECT '4' NUM, 'РРІР°РЅ' NAME, '2' MNG 
         FROM DUAL 
         UNION ALL 
-        SELECT '5' NUM, 'Кристина' NAME, '3' MNG 
+        SELECT '5' NUM, 'РљСЂРёСЃС‚РёРЅР°' NAME, '3' MNG 
         FROM DUAL 
         UNION ALL 
-        SELECT '6' NUM, 'Андрей' NAME, '5' MNG 
+        SELECT '6' NUM, 'РђРЅРґСЂРµР№' NAME, '5' MNG 
         FROM DUAL
         UNION ALL 
-        SELECT '7' NUM, 'Петр' NAME, '8' MNG 
+        SELECT '7' NUM, 'РџРµС‚СЂ' NAME, '8' MNG 
         FROM DUAL 
         UNION ALL 
-        SELECT '8' NUM, 'Павел' NAME, '9' MNG 
+        SELECT '8' NUM, 'РџР°РІРµР»' NAME, '9' MNG 
         FROM DUAL 
         UNION ALL 
-        SELECT '9' NUM, 'Иван' NAME, '7' MNG 
+        SELECT '9' NUM, 'РРІР°РЅ' NAME, '7' MNG 
         FROM DUAL 
         ), 
      RES AS (
