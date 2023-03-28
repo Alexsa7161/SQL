@@ -22,3 +22,4 @@ GROUP BY ROLLUP (
 HAVING GROUPING(department_id) = 0 
 	   AND NOT (GROUPING(employee_id) = 0 AND COUNT(employee_id) = 0) 
 ORDER BY department_id, employee_id DESC;
+
