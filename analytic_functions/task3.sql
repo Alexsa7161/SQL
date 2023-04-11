@@ -15,3 +15,4 @@ SELECT department_id, last_name, salary, row_n AS cnt
 FROM data
 WHERE row_n <= 3
     AND sal_rank + cnt + row_n <= 7;
+    
