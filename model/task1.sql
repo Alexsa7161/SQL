@@ -14,3 +14,4 @@ RULES ITERATE(999) UNTIL (iteration_number > LENGTH('&input_str'))
 (res_str[0] = CASE WHEN SUBSTR('&input_str', iteration_number + 1, 1) = ' '
         AND res_str[0] LIKE '% ' THEN res_str[0]
     ELSE res_str[0] || SUBSTR('&input_str', iteration_number + 1, 1) END)
+    
