@@ -28,3 +28,4 @@ CONNECT BY str > PRIOR str)
 SELECT '&str' "Текст", RESUL "Результат" 
 FROM RESULT_STRING 
 WHERE rn = (SELECT COUNT(str) FROM CORRECT_NUMBERS);
+
