@@ -5,3 +5,4 @@
 DEFINE str = 'A[[B[C][D]E[F[J]]H][K]L]M'
 SELECT REGEXP_REPLACE('&&str','\[([^][]*)\]','(\1)') "Результат"
 FROM DUAL;
+
