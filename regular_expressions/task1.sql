@@ -26,3 +26,4 @@ HAVING MAX(LVL) > 1)
 ORDER BY ROOT)
 SELECT CASE WHEN ROWNUM = 1 THEN '&str' ELSE ' ' END "Символьная строка", WORDS "Повторяющиеся слова"
 FROM RESULT;
+
